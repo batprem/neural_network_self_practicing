@@ -12,7 +12,7 @@ from keras.layers import (Input, Concatenate, concatenate,
                           BatchNormalization, Conv2D, Flatten, Dense)
 from keras.models import Model, load_model
 from sklearn.preprocessing import OneHotEncoder
-from keras.callbacks import ModelCheckpoint,EarlyStopping
+from keras.callbacks import ModelCheckpoint, EarlyStopping
 import matplotlib.pyplot as plt
 
 print(tf.__version__)
@@ -26,8 +26,10 @@ def getCheckPoint(filepath, monitor, verbose=1, mode='min'):
                            save_best_only=True,
                            mode=mode)
 
+
 def getEarlyStop(monitor, verbose=1, mode='min'):
-    return EarlyStopping(monitor=monitor, mode = 'min', patience=5)
+    return EarlyStopping(monitor=monitor, mode='min', patience=5)
+
 
 # # Machine learning using Tensorflow
 
@@ -63,8 +65,6 @@ sns.pairplot(Train, size=2.5, hue=observing_columns)
 
 plt.savefig("SNS_pairplot.png")
 plt.close()
-
-
 
 col = "embark_town"
 pd.DataFrame({"Total": Train.groupby(col).count()['survived'],
@@ -157,7 +157,6 @@ if __name__ == "__main__":
     plt.legend()
     plt.savefig("Train history")
     plt.close()
-
 
 # # In[32]:
 #
